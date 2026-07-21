@@ -1,0 +1,71 @@
+Practical 2: Linear and Binary Search: Iterative and Recursive
+Approaches
+#Problem 1
+A security guard at a parking lot checks vehicles one by one from the entrance to find a car with
+a specific license plate. Sometimes he starts from the entrance, sometimes he calls a helper
+who starts from where the guard left off. Given a list of license plates and a target plate,
+implement both approaches — one that checks plates one by one from the start, and one where
+the function calls itself to continue checking — and report the position of the target plate if
+found.
+Describe the approach you used. What happens in your solution if the target plate appears
+more than once in the list? Does it find the first occurrence, the last, or just any one?
+#code
+#include<iostream>
+using namespace std;
+int main(){
+int arr[5]={10,20,30,40,50};
+int start=0;
+int end=4;
+int target=10;
+while(start<=end){
+     int mid=(start+end)/2;
+   if (arr[mid]==target){
+    cout<<"element found at position:"<<mid+1;
+    break;
+   }
+   else if(target<arr[mid]){
+    end =mid-1;
+   }
+   else {
+    start=mid+1;
+   }
+}
+}
+#error faced
+No "Element not found" message after the loop
+
+Problem 2
+A librarian maintains a sorted catalog of book codes and needs to locate a specific code quickly.
+Instead of going through every book, she opens the catalog to the middle, checks whether the
+target is to the left or right, and repeats. Given a sorted list of book codes and a target code,
+implement both approaches — one using a loop and one where the function calls itself — and
+report the position of the target code.
+Describe the approach you used. What is the one condition your input must satisfy for this
+approach to work correctly? What would go wrong if that condition was not met?
+
+#code
+#include<iostream>
+using namespace std;
+int main(){
+    int car[6]={10,20,30,40,50,60};
+    int target;
+    cout<<"enter target element:";
+    cin>>target;
+    int found=0;
+    for(int i=0;i<=6;i++){
+        if(car[i]==target){
+            found=1;
+            cout<<"car found :"<<i+1;
+            break;
+        }
+        
+    }
+    if (found==0){
+        cout<<"car not found";
+    }
+}
+
+#error faced
+
+
+Use < 6 instead of <= 6.
